@@ -1,0 +1,63 @@
+<div class="container">
+    <h2>Submit Your Details</h2>
+    <form (ngSubmit)="onSubmit()" #dataForm="ngForm">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input
+          type="text"
+          id="name"
+          class="form-control"
+          name="name"
+          [(ngModel)]="formData.name"
+          required
+        />
+      </div>
+  
+      <div class="form-group">
+        <label for="ssn">SSN</label>
+        <input
+          type="number"
+          id="ssn"
+          class="form-control"
+          name="ssn"
+          [(ngModel)]="formData.ssn"
+          required
+        />
+      </div>
+  
+      <div class="form-group">
+        <label for="dob">Date of Birth</label>
+        <input
+          type="date"
+          id="dob"
+          class="form-control"
+          name="dob"
+          [(ngModel)]="formData.dob"
+          required
+        />
+      </div>
+  
+      <button type="submit" class="btn btn-primary" [disabled]="!dataForm.valid">
+        Submit
+      </button>
+    </form>
+  
+    <h3>Submitted Data</h3>
+    <table class="table table-striped" *ngIf="submittedData.length > 0">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>SSN</th>
+          <th>Date of Birth</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of submittedData">
+          <td>{{ data.name }}</td>
+          <td>{{ data.ssn }}</td>
+          <td>{{ data.dob  }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
