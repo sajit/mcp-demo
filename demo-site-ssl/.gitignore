@@ -8,3 +8,4 @@ node_modules
 client.csr
 server.csr
 ca-cert.srl
+client.p12
